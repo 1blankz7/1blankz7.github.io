@@ -2,13 +2,14 @@
 title: Christian Blank
 email: your-email@domain.com
 description: HAW Hamburg
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: ""
 url: "http://cblank.de" # the base hostname & protocol for your site
 twitter_username: clrflProjects
 github_username: 1blankz7
 facebook_username: blanker.de
 ntb_username: blanker
 google_username: "101834777255001548316"
+analytics_id: "abbasada"
 
 # Build settings
 markdown: kramdown
