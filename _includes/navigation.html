@@ -2,13 +2,14 @@
   <h3 class="screen-reader-text">Menu</h3>
   <div class="menu-wrap">
     <ul id="menu-menu-1" class="menu">
-      {% for page in site.pages %}
-          {% if page.title %}
+      {% assign pages = site.pages | sort: 'index' %} 
+      {% for page in pages %}
+          {% if page.menu == 'main' %}
           <li id="menu-item-11" class="menu-item menu-item-object-page current-menu-item page_item current_page_item menu-item-11">
             <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           </li>
           {% endif %}
         {% endfor %}
   </div>
-  <a href="#" id="menu-toggle" title="Show Menu"><i aria-hidden="true" class="icon-plus"></i></a>
+  <a href="#" id="menu-toggle" title="Show Menu"><i aria-hidden="true" class="fa fa-plus"></i></a>
 </nav><!-- .site-navigation -->

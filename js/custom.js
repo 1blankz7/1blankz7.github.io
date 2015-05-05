@@ -6,11 +6,13 @@
 	 	
 	 	// Navigation menu toggle
 	 	$('#menu-toggle').click(function(){
+	 		var plusClass = 'fa-plus';
+	 		var minusClass = 'fa-minus';
 			var menuIcon = $(this).find('i');
-			if ( menuIcon.hasClass('icon-plus') )
-				menuIcon.removeClass('icon-plus').addClass('icon-minus');
+			if ( menuIcon.hasClass(plusClass) )
+				menuIcon.removeClass(plusClass).addClass('fa-minus');
 			else
-				menuIcon.removeClass('icon-minus').addClass('icon-plus');
+				menuIcon.removeClass('fa-minus').addClass(plusClass);
 			$('.menu-wrap').slideToggle();
 			return false;
 		});

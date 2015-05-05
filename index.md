@@ -3,6 +3,7 @@ layout: page
 title: Papers und Publikationen
 permalink: /index.html
 index: 1
+menu: main
 ---
 
 <h2>2013</h2>

@@ -2,7 +2,8 @@
 layout: page
 title: Open Source
 permalink: /open-source.html
-index: 1
+index: 2
+menu: main
 ---
 ## HTML Präsentationen
 
