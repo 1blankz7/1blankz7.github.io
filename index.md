@@ -47,3 +47,7 @@ menu: main
 <ul>
 <li><a href="http://users.informatik.haw-hamburg.de/~ubicomp/projekte/master2014-sem/blank/bericht.pdf">Ausarbeitung</a></li>
 </ul>
+<h3>Projekt 2</h3>
+<ul>
+<li><a href="http://i2e.informatik.haw-hamburg.de/assets/docs/p2/p2_blank_2015.pdf">Ausarbeitung</a></li>
+</ul>
