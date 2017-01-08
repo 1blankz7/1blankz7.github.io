@@ -1,12 +1,12 @@
 # Site settings
 title: Christian Blank
-email: your-email@domain.com
-description: HAW Hamburg
+email: mail@cblank.de
+description: Check24 Vergleichsportal
 baseurl: ""
-url: "http://cblank.de" # the base hostname & protocol for your site
-twitter_username: clrflProjects
+url: "http://cblank.de"
+twitter_username: _cblank
 github_username: 1blankz7
-facebook_username: blanker.de
+facebook_username: cblank.de
 ntb_username: blanker
 google_username: "101834777255001548316"
 analytics_id: "UA-25956210-3"
