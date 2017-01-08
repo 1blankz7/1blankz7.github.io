@@ -6,13 +6,34 @@ index: 1
 menu: main
 ---
 
-<h2>2013</h2>
-<h3>Bachelorarbeit</h3>
-<p>Generierung von Tiefenbildern mittels Stereoskopie</p>
+<h2>2016</h2>
+<h3>Masterarbeit</h3>
+<p>Intuitive kontaktfreie Interaktion in Virtual und Mixed Reality</p>
 <ul>
-<li><a href="http://edoc.sub.uni-hamburg.de/haw/volltexte/2013/2171/pdf/bachelorthesis.pdf">Arbeit</a></li>
-<li><a href="http://i2e.informatik.haw-hamburg.de/assets/docs/ba/ba_blank_2013_kolloquium.pdf">Präsentation</a></li>
+<li><a href="http://edoc.sub.uni-hamburg.de/haw/frontdoor.php?source_opus=3723&la=de">Thesis</a></li>
 </ul>
+<h3>Buch</h3>
+<p>Studiengang-Monitoring</p>
+<ul>
+<li><a href="https://www.shaker.de/de/content/catalogue/index.asp?lang=de&ID=8&ISBN=978-3-8440-4850-6&search=yes">Buch</a></li>
+</ul>
+
+<h2>2015</h2>
+<h3>ACHI 2015</h3>
+<ul>
+<li><a href="http://www.thinkmind.org/index.php?view=article&#038;articleid=achi_2015_10_40_20184">Paper</a></li>
+<li><a href="https://speakerdeck.com/1blankz7/distributed-collaborative-construction-in-mixed-reality">Präsentation</a></li>
+</ul>
+<h3>Masterseminar</h3>
+<p>Interaktionen im dreidimensionalen Raum</p>
+<ul>
+<li><a href="http://users.informatik.haw-hamburg.de/~ubicomp/projekte/master2014-sem/blank/bericht.pdf">Ausarbeitung</a></li>
+</ul>
+<h3>Projekt 2</h3>
+<ul>
+<li><a href="http://i2e.informatik.haw-hamburg.de/assets/docs/p2/p2_blank_2015.pdf">Ausarbeitung</a></li>
+</ul>
+
 <h2>2014</h2>
 <h3>Anwendungen 1 (Grundlagen)</h3>
 <p>Gesten im dreidimensionalen Raum</p>
@@ -36,18 +57,11 @@ menu: main
 <ul>
 <li><a href="http://users.informatik.haw-hamburg.de/~ubicomp/projekte/master2014-sem/blank/folien.pdf">Präsentation</a></li>
 </ul>
-<h2>2015</h2>
-<h3>ACHI 2015</h3>
+
+<h2>2013</h2>
+<h3>Bachelorarbeit</h3>
+<p>Generierung von Tiefenbildern mittels Stereoskopie</p>
 <ul>
-<li><a href="http://www.thinkmind.org/index.php?view=article&#038;articleid=achi_2015_10_40_20184">Paper</a></li>
-<li><a href="https://speakerdeck.com/1blankz7/distributed-collaborative-construction-in-mixed-reality">Präsentation</a></li>
-</ul>
-<h3>Masterseminar</h3>
-<p>Interaktionen im dreidimensionalen Raum</p>
-<ul>
-<li><a href="http://users.informatik.haw-hamburg.de/~ubicomp/projekte/master2014-sem/blank/bericht.pdf">Ausarbeitung</a></li>
-</ul>
-<h3>Projekt 2</h3>
-<ul>
-<li><a href="http://i2e.informatik.haw-hamburg.de/assets/docs/p2/p2_blank_2015.pdf">Ausarbeitung</a></li>
+<li><a href="http://edoc.sub.uni-hamburg.de/haw/volltexte/2013/2171/pdf/bachelorthesis.pdf">Thesis</a></li>
+<li><a href="http://i2e.informatik.haw-hamburg.de/assets/docs/ba/ba_blank_2013_kolloquium.pdf">Präsentation</a></li>
 </ul>
