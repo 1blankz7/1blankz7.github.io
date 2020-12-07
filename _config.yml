@@ -6,8 +6,7 @@ gems:
 # Site settings
 title: "Christian Blank"
 description: > # this means to ignore newlines until "email:"
-  My name is Christian. I am working and living in Hamburg, Germany. I'm a researcher, founder, investor and former
-  professional sportsman.
+  I'm a researcher, founder, investor and former professional sportsman.
 
 email: mail@cblank.de
 #blog logo
@@ -41,10 +40,10 @@ social:
     url:	https://github.com/1blankz7
     desc:	Fork me on github
   - icon:	university
-    url:    https://haw-hamburg.academia.edu/ChristianBlank
-  - icon:	researchgate
-    url:    https://www.researchgate.net/profile/Christian_Blank
+    url:  https://haw-hamburg.academia.edu/ChristianBlank
+  - icon:	university
+    url:  https://www.researchgate.net/profile/Christian_Blank
   - icon:	linkedin
-    url:    https://www.linkedin.com/in/christian-blank-55b669195/
+    url:  https://www.linkedin.com/in/christian-blank-55b669195/
   - icon:	xing
-    url:    https://www.xing.com/profile/Christian_Blank28/cv
+    url:  https://www.xing.com/profile/Christian_Blank28/cv
