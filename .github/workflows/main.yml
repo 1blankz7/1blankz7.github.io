@@ -1,0 +1,40 @@
+on:
+  push:
+    branches: [main]
+
+name: Build and test
+
+jobs:
+  install:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install --frozen-lockfile --check-files
+      - uses: actions/cache@v1
+        id: cache-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    needs: install
+    steps:
+      - uses: actions/cache@v1
+        id: restore-build
+        with:
+          path: '.'
+          key: ${{ github.sha }}
+      - run: yarn build && touch out/.nojekyll
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: out
+          CLEAN: true

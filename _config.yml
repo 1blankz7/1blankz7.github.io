@@ -1,8 +1,3 @@
-# Build settings
-plugins:
-  - jemoji
-  - jekyll-paginate
-
 # Site settings
 title: "Christian Blank"
 description: > # this means to ignore newlines until "email:"
@@ -19,16 +14,6 @@ cover: "/assets/images/background_image.jpg"
 
 name: 'Christian Blank'
 author: 'Christian Blank'
-
-paginate:	5
-permalink: pretty
-
-url: "https://cblank.de" # the base hostname & protocol for your site
-baseurl: ""
-#used to display twitter cards
-twitter_handle: '@_cblank'
-
-#google_analytics: UA-XXXXX-X
 
 # social icons and sharing options
 social:
