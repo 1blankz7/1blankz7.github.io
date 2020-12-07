@@ -79,8 +79,27 @@
           {{/post}}
           <div class="isRight">
             <h5 class="index-headline featured"><span>Supported by</span></h5>
+            {% if page.layout != 'index' %}
+              {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+              {% if posts.size == 0 %}
+                  {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+              {% endif %}
+              {% if posts.size > 1 %}
+              <footer class="lang-options">
+                  <em>Read this page in a different language:</em>
+                  <ul>
+                  {% for post in posts %}
+                    <li>
+                      <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">
+                        {{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                  </ul>
+              </footer>
+              {% endif %}
+            {% endif %}
             <footer class="site-footer">
-              <section class="poweredby">Proudly published with <a href="http://jekyllrb.com"> Jekyll</a></section>
               <a class="subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}"> <span class="tooltip"> <i class="fa fa-rss"></i> You should subscribe to my feed.</span></a>
               <div class="inner">
                 <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{site.author}}</a> &copy; {{ site.time | date: '%Y' }}<br>All rights reserved.</section>
@@ -88,21 +107,6 @@
             </footer>
           </div>
         </div>
-        {%if site.disqus %}
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = '{{site.disqus}}'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        {% endif %}
       </article>
     </main>
     <div class="bottom-closer">
