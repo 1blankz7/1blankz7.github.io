@@ -5,31 +5,13 @@ on:
 name: Build and test
 
 jobs:
-  install:
-    name: Install dependencies
+  build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - run: yarn install --frozen-lockfile --check-files
-      - uses: actions/cache@v1
-        id: cache-build
-        with:
-          path: '.'
-          key: ${{ github.sha }}
-  build:
-    name: Build site
-    runs-on: ubuntu-latest
-    env:
-      NEXT_TELEMETRY_DISABLED: 1
-    needs: install
-    steps:
-      - uses: actions/cache@v1
-        id: restore-build
-        with:
-          path: '.'
-          key: ${{ github.sha }}
       - run: yarn build && touch out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
