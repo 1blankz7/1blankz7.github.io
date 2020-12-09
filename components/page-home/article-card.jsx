@@ -1,15 +1,15 @@
-const ArticleCard = () => (
+import Link from "next/link";
+
+const ArticleCard = ({ article }) => (
   <div>
-    <img className="article-image" src="https://picsum.photos/340/220" alt="" />
+    <img className="article-image" src={article.image} alt="" />
     <h2 className="article-title">
-      <a href="">Do You Make These Simple Mistakes In Travel?</a>
+      <Link href={`/posts/${article.slug}`}>{article.title}</Link>
     </h2>
-    <p className="article-body">
-      Far far away, behind the word mountains, far from the countries...
-    </p>
-    <a href="" className="readmore">
+    <p className="article-body">{article.abstract}</p>
+    <Link href={`/posts/${article.slug}`} className="readmore">
       Read More...
-    </a>
+    </Link>
   </div>
 );
 

@@ -4,8 +4,13 @@ import "../styles/index.css";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import Head from "next/head";
+import * as Components from "../components/basic";
 
-const mdComponents = {};
+const mdComponents = {
+  h1: Components.H1,
+  h2: Components.H2,
+  p: Components.P,
+};
 
 const App = ({ Component, pageProps }) => (
   <>
