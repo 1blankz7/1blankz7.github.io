@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Christian Blank</title>
           <link rel="icon" type="image/png" href="/assets/favicon.png" />
         </Head>
         <body>
