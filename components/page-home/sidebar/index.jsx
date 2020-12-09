@@ -8,12 +8,12 @@ const Sidebar = () => (
         <Image src="/assets/cb.jpg" layout="fill" />
       </div>
       <h2 className="font-light text-xl my-5">I am</h2>
-      <p className="article-body">
+      <p className="text-gray-900 font-thin tracking-wider leading-loose font-sans">
         I'm a researcher, founder, investor and former professional sportsman.
       </p>
     </div>
     <div className="mt-10">
-      <h2 className="font-light text-xl mb-5 text-gray-900 text-center">
+      <h2 className="font-light text-xl mb-5 text-gray-900 text-center font-sans">
         Recent Posts
       </h2>
       <ul>

@@ -28,7 +28,7 @@
 }
 
 .article-title {
-    @apply text-gray-900 font-thin font-serif text-xl my-5;
+    @apply text-gray-900 font-thin font-sans text-xl my-5;
 }
 
 .article-body {

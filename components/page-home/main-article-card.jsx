@@ -1,7 +1,7 @@
 const MainArticleCard = () => (
   <div>
     <img className="article-image" src="https://picsum.photos/300/200" alt="" />
-    <h2 className="text-gray-900 font-serif text-3xl my-5 font-thin">
+    <h2 className="text-gray-900 font-sans text-3xl my-5 font-thin">
       <a href="">How To Make More Travel By Doing Less</a>
     </h2>
     <span className="text-xs text-gray-800 font-thin block mb-5">

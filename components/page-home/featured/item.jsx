@@ -18,7 +18,7 @@ const FeaturedItem = () => (
           <span className="inline-block text-white uppercase text-xs tracking-wide">
             Hotels
           </span>
-          <h2 className="text-white font-semibold font-serif text-xl my-5">
+          <h2 className="text-white font-semibold font-sans text-xl my-5">
             Places to stay in the island on your visit
           </h2>
           <span className="inline-block text-xs text-white font-sans">
