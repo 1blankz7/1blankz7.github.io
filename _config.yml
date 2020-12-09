@@ -1,20 +1,3 @@
-# Site settings
-title: "Christian Blank"
-description: > # this means to ignore newlines until "email:"
-  I'm a researcher, founder, investor and former professional sportsman.
-
-email: mail@cblank.de
-#blog logo
-logo: "/assets/images/cb.jpg"
-icon: "/assets/images/favicon.png"
-float_logo: true # true, false (default)
-
-# blog cover
-cover: "/assets/images/background_image.jpg"
-
-name: 'Christian Blank'
-author: 'Christian Blank'
-
 # social icons and sharing options
 social:
   - icon:	twitter

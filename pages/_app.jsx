@@ -6,7 +6,7 @@ import Footer from "../components/footer";
 
 const mdComponents = {};
 
-export default ({ Component, pageProps }) => (
+const App = ({ Component, pageProps }) => (
   <MDXProvider components={mdComponents}>
     <Nav />
     <main className="max-w-5xl mx-auto pb-10 pt-10">
@@ -15,3 +15,5 @@ export default ({ Component, pageProps }) => (
     <Footer />
   </MDXProvider>
 );
+
+export default App;

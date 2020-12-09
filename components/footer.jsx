@@ -5,8 +5,8 @@ export default function Footer() {
     <footer className="bg-gray-100 text-center sm:text-left">
       <div className="max-w-5xl mx-auto pb-10 pt-10 text-gray-900">
         <ul>
-          <li className="inline-block"><Link className="block font-semibold px-3" href="/">Home</Link></li>
-          <li className="inline-block"><Link className="block font-semibold px-3" href="/about">About</Link></li>
+          <li className="inline-block block font-semibold px-3"><Link href="/">Home</Link></li>
+          <li className="inline-block block font-semibold px-3"><Link href="/about">About</Link></li>
         </ul>
         <div className="sm:flex px-3">
           <div className="w-full sm:w-1/2">
