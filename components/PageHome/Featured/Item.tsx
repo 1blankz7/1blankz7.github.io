@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
+import { Article } from "services/articles";
 
-const FeaturedItem = ({ article }) => (
+type Props = {
+  article: Article;
+}
+
+const FeaturedItem: React.FC<Props> = ({ article }) => (
   <li className="my-2 px-2 w-full overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3">
     <Link href={`/posts/${article.slug}`}>
       <div className="mx-2 flex items-center justify-center bg-gray-300 bg-cover bg-center relative rounded overflow-hidden">

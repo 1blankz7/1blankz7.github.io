@@ -1,7 +1,12 @@
 import Link from "next/link";
 import dayjs from "dayjs";
+import { Article } from "services/articles";
 
-const MainArticleCard = ({ article }) => (
+type Props = {
+  article: Article;
+}
+
+const MainArticleCard: React.FC<Props> = ({ article }) => (
   <div>
     <img className="article-image" src={article.image} alt="" />
     <h2 className="text-gray-900 font-sans text-3xl my-5 font-thin">
@@ -13,7 +18,7 @@ const MainArticleCard = ({ article }) => (
     <p className="article-body">
       {article.abstract}
     </p>
-    <Link href={`/posts/${article.slug}`} className="readmore">
+    <Link href={`/posts/${article.slug}`}>
       Read More...
     </Link>
   </div>

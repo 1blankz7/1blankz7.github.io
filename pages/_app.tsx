@@ -1,10 +1,11 @@
 import React from "react";
+import type { AppProps } from 'next/app'
 import { MDXProvider } from "@mdx-js/react";
 import "../styles/index.css";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
+import Nav from "../components/Header";
+import Footer from "../components/Footer";
 import Head from "next/head";
-import * as Components from "../components/basic";
+import * as Components from "../components/BasicComponents";
 
 const mdComponents = {
   h1: Components.H1,
@@ -12,7 +13,7 @@ const mdComponents = {
   p: Components.P,
 };
 
-const App = ({ Component, pageProps }) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
       <title>Christian Blank</title>

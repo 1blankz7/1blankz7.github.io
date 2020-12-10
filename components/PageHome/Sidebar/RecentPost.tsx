@@ -1,7 +1,12 @@
 import Link from "next/link";
 import dayjs from "dayjs";
+import { Article } from "services/articles";
 
-const RecentPost = ({ article }) => (
+type Props = {
+  article: Article;
+}
+
+const RecentPost: React.FC<Props> = ({ article }) => (
   <li className="mb-3 flex">
     <Link href={`/posts/${article.slug}`}>
       <div className="w-1/3">

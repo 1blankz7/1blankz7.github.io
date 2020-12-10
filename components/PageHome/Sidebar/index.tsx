@@ -1,7 +1,12 @@
-import RecentPost from "./recent-post";
+import RecentPost from "./RecentPost";
 import Image from "next/image";
+import { Article } from "services/articles";
 
-const Sidebar = ({ articles = [] }) => (
+type Props = {
+  articles: Array<Article>;
+}
+
+const Sidebar: React.FC<Props> = ({ articles }) => (
   <div className="ml-2 md:ml-4 mr-2">
     <div className="mt-20 sm:mt-0 text-center">
       <div className="w-64 h-64 rounded-full mx-auto relative">

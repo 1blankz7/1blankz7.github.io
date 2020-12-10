@@ -4,7 +4,7 @@ const withMDX = require("@next/mdx")({
   // extension: /\.(md|mdx)$/,
 });
 module.exports = withMDX({
-  pageExtensions: ["js", "jsx", "mdx"],
+  pageExtensions: ["tsx", "mdx"],
   images: {
     domains: ["picsum.photos"],
   },
