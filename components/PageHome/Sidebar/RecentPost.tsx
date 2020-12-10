@@ -8,7 +8,7 @@ type Props = {
 
 const RecentPost: React.FC<Props> = ({ article }) => (
   <li className="mb-3 flex">
-    <Link href={`/posts/${article.slug}`}>
+    <Link href={`/articles/${article.slug}`}>
       <div className="w-1/3">
         <img className="rounded" src="https://picsum.photos/100/100" alt="" />
       </div>

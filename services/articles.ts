@@ -5,6 +5,7 @@ export interface Article {
   created: string;
   abstract: string;
   category: string | undefined;
+  featured: boolean | false;
 }
 
 export async function getAllArticles(): Promise<Array<Article>> {

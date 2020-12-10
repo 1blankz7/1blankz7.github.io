@@ -2,34 +2,40 @@ import Featured from "../components/PageHome/Featured";
 import ArticleCard from "../components/PageHome/ArticleCard";
 import MainArticleCard from "../components/PageHome/MainArticleCard";
 import Sidebar from "../components/PageHome/Sidebar";
-import { getAllArticles } from "services/articles";
+import { Article, getAllArticles } from "services/articles";
 
-const IndexPage = ({ articles }) => (
+type Props = {
+  mainArticle: Article;
+  featuredArticles: Array<Article>;
+  articles: Array<Array<Article>>,
+};
+
+function chunk<T>(array: Array<T>, size: number): Array<Array<T>> {
+  return array.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
+}
+
+const IndexPage: React.FC<Props> = ({ mainArticle, featuredArticles, articles }) => (
   <>
-    <Featured articles={articles} />
+    {featuredArticles.length > 0 && <Featured articles={featuredArticles} />}
     <main className="max-w-5xl mx-auto pb-10 pt-10">
       <div className="flex flex-wrap overflow-hidden">
         <div className="w-full overflow-hidden md:w-4/6 lg:w-4/6 xl:w-4/6">
           <div className="mr-2 md:mr-4 ml-2">
             <div className="pb-10">
-              <MainArticleCard article={articles[0]} />
+              <MainArticleCard article={mainArticle} />
             </div>
-            <div className="article-row">
-              <div className="article-card-right">
-                <ArticleCard article={articles[0]} />
+            {articles.map(articleRow => (
+              <div className="article-row">
+                <div className="article-card-right">
+                  <ArticleCard article={articleRow[0]} />
+                </div>
+                {articleRow[1] && (
+                  <div className="article-card-right">
+                    <ArticleCard article={articleRow[1]} />
+                  </div>
+                )}
               </div>
-              <div className="article-card-left">
-                <ArticleCard article={articles[0]} />
-              </div>
-            </div>
-            <div className="article-row">
-              <div className="article-card-right">
-                <ArticleCard article={articles[0]} />
-              </div>
-              <div className="article-card-left">
-                <ArticleCard article={articles[0]} />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -43,10 +49,15 @@ const IndexPage = ({ articles }) => (
 
 export async function getStaticProps(context) {
   const articles = await getAllArticles();
+  const featuredArticles = articles.filter(article => article.featured);
+  const notFeatured = articles.filter(article => !article.featured);
+  const mainArticle = notFeatured.shift();
 
   return {
     props: {
-      articles,
+      mainArticle,
+      featuredArticles,
+      articles: chunk(notFeatured, 2),
     },
   };
 }
