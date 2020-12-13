@@ -6,11 +6,12 @@ export interface Article {
   abstract: string;
   category: string | undefined;
   featured: boolean | false;
+  unpublished: boolean | false;
 }
 
 export async function getAllArticles(): Promise<Array<Article>> {
   const context = require.context("../pages/articles", false, /\.mdx$/);
-  const articles = [];
+  const articles: Array<Article> = [];
   for (const key of context.keys()) {
     const article: string = key.slice(2);
     const { meta } = await import(`../pages/articles/${article}`);
@@ -19,5 +20,5 @@ export async function getAllArticles(): Promise<Array<Article>> {
       slug: article.replace(".mdx", ""),
     });
   }
-  return articles;
+  return articles.filter(article => !article.unpublished);
 }

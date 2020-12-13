@@ -5,7 +5,7 @@ import Sidebar from "../components/PageHome/Sidebar";
 import { Article, getAllArticles } from "services/articles";
 
 type Props = {
-  mainArticle: Article;
+  mainArticle: Article|null;
   featuredArticles: Array<Article>;
   articles: Array<Array<Article>>,
 };
@@ -22,7 +22,7 @@ const IndexPage: React.FC<Props> = ({ mainArticle, featuredArticles, articles })
         <div className="w-full overflow-hidden md:w-4/6 lg:w-4/6 xl:w-4/6">
           <div className="mr-2 md:mr-4 ml-2">
             <div className="pb-10">
-              <MainArticleCard article={mainArticle} />
+              {mainArticle && <MainArticleCard article={mainArticle} />}
             </div>
             {articles.map((articleRow, idx) => (
               <div className="article-row" key={idx}>
@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      mainArticle,
+      mainArticle: mainArticle || null,
       featuredArticles,
       articles: chunk(notFeatured, 2),
     },
