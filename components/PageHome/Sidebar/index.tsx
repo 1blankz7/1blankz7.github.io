@@ -14,7 +14,8 @@ const Sidebar: React.FC<Props> = ({ articles }) => (
       </div>
       <h2 className="font-light text-xl my-5">I am</h2>
       <p className="text-gray-900 font-thin tracking-wider leading-loose font-sans">
-        I'm a researcher, founder, investor and former professional sportsman.
+        Hi my name is Christian. I work and live in Hamburg, Germany. I'm a researcher, founder, investor and former
+        professional sportsman.
       </p>
     </div>
     {articles.length > 0 ? (

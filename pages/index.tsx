@@ -24,8 +24,8 @@ const IndexPage: React.FC<Props> = ({ mainArticle, featuredArticles, articles })
             <div className="pb-10">
               <MainArticleCard article={mainArticle} />
             </div>
-            {articles.map(articleRow => (
-              <div className="article-row">
+            {articles.map((articleRow, idx) => (
+              <div className="article-row" key={idx}>
                 <div className="article-card-right">
                   <ArticleCard article={articleRow[0]} />
                 </div>
