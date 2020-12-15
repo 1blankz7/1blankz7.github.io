@@ -17,6 +17,7 @@ class MyDocument extends Document {
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            data-cookieconsent="statistics"
           />
           <script
             dangerouslySetInnerHTML={{
