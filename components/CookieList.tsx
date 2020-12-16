@@ -3,9 +3,10 @@ import { useEffect } from "react";
 const CookieList: React.FC = () => {
   useEffect(() => {
     return function cleanup() {
-      const element = document.getElementById("CookieDeclaration");
-      if (element) {
-        element.innerHTML = "";
+      const elements = document.getElementsByClassName('CookieDeclaration');
+
+      if (elements.length) {
+        elements.item(0).remove();
       }
     };
   }, []);
