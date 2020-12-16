@@ -8,7 +8,9 @@ type Props = {
 
 const MainArticleCard: React.FC<Props> = ({ article }) => (
   <div>
-    <img className="article-image" src={article.image} alt="" />
+    <Link href={`/articles/${article.slug}`}>
+      <img className="article-image" src={article.image} alt={article.title} />
+    </Link>
     <h2 className="text-gray-900 font-sans text-3xl my-5 font-thin">
       <Link href={`/articles/${article.slug}`}>{article.title}</Link>
     </h2>
