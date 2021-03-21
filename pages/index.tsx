@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Featured from "../components/PageHome/Featured";
 import ArticleCard from "../components/PageHome/ArticleCard";
 import MainArticleCard from "../components/PageHome/MainArticleCard";
@@ -16,6 +17,9 @@ function chunk<T>(array: Array<T>, size: number): Array<Array<T>> {
 
 const IndexPage: React.FC<Props> = ({ mainArticle, featuredArticles, articles }) => (
   <>
+    <Head>
+      <title>Christian Blank</title>
+    </Head>
     {featuredArticles.length > 0 && <Featured articles={featuredArticles} />}
     <main className="max-w-5xl mx-auto pb-10 pt-10">
       <div className="flex flex-wrap overflow-hidden">

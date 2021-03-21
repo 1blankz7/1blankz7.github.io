@@ -4,7 +4,6 @@ import { MDXProvider } from "@mdx-js/react";
 import "../styles/index.css";
 import Nav from "../components/Header";
 import Footer from "../components/Footer";
-import Head from "next/head";
 import * as Components from "../components/BasicComponents";
 import { useRouter } from "next/dist/client/router";
 import {pageview} from "@services/gtag";
@@ -31,12 +30,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [router.events]);
   return (
     <>
-      <Head>
-        <title>Christian Blank</title>
-      </Head>
       <MDXProvider components={mdComponents}>
         <Nav />
-        <main className="max-w-5xl mx-auto pb-10 pt-10">
+        <main className="max-w-5xl mx-auto p-10">
           <Component {...pageProps} />
         </main>
         <Footer />
