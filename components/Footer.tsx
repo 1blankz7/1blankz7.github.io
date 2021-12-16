@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faTwitter, faXing, faGithub } from '@fortawesome/free-brands-svg-icons';
+import dayjs from 'dayjs';
+
+const year = dayjs().format('YYYY');
 
 const Footer: React.FC = () => (
   <footer className="bg-gray-100 text-center sm:text-left">
@@ -14,7 +17,7 @@ const Footer: React.FC = () => (
       <div className="sm:flex px-3">
         <div className="w-full sm:w-1/2">
           <h4 className="font-bold text-2xl pt-10">Christian Blank</h4>
-          <span className="block pt-1 text-xs tracking-wider font-light">&copy;2020. All rights reserved.</span>
+          <span className="block pt-1 text-xs tracking-wider font-light">&copy; {year}. All rights reserved.</span>
         </div>
         <div className="w-full sm:w-1/2 text-center md:text-right mt-10 sm:mt-0">
           <a href="https://twitter.com/_cblank" title="Twitter" className="inline-block w-6 mr-2">
