@@ -1,3 +1,5 @@
+import lodash from 'lodash';
+
 export interface Article {
   slug: string;
   title: string;
@@ -10,7 +12,7 @@ export interface Article {
 }
 
 export async function getAllArticles(): Promise<Array<Article>> {
-  const context = require.context("../pages/articles", false, /\.mdx$/);
+  const context = require.context('../pages/articles', false, /\.mdx$/);
   const articles: Array<Article> = [];
   for (const key of context.keys()) {
     const article: string = key.slice(2);
@@ -20,5 +22,7 @@ export async function getAllArticles(): Promise<Array<Article>> {
       slug: article.replace(".mdx", ""),
     });
   }
-  return articles.filter(article => !article.unpublished);
+  return lodash.reverse(
+    lodash.sortBy(articles.filter(article => !article.unpublished), 'created')
+  );
 }
