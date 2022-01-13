@@ -1,68 +1,51 @@
 import Head from "next/head";
-import Featured from "../components/PageHome/Featured";
-import ArticleCard from "../components/PageHome/ArticleCard";
-import MainArticleCard from "../components/PageHome/MainArticleCard";
 import Sidebar from "../components/PageHome/Sidebar";
-import { Article, getAllArticles } from "services/articles";
+import {getAllPostsForHome} from "../lib/storyblok"
+import {Article} from "@services/articles";
+import MainArticleCard from "@components/PageHome/MainArticleCard";
+import MoreStories from "@components/PageHome/MoreArticles";
 
 type Props = {
-  mainArticle: Article|null;
-  featuredArticles: Array<Article>;
-  articles: Array<Array<Article>>,
+  articles: Article[];
+  preview: boolean;
 };
 
-function chunk<T>(array: Array<T>, size: number): Array<Array<T>> {
-  return array.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
-}
+const IndexPage: React.FC<Props> = ({ articles, preview }) => {
+  const mainArticle = articles[0];
+  const morePosts = articles.slice(1);
 
-const IndexPage: React.FC<Props> = ({ mainArticle, featuredArticles, articles }) => (
-  <>
-    <Head>
-      <title>Christian Blank</title>
-    </Head>
-    {featuredArticles.length > 0 && <Featured articles={featuredArticles} />}
-    <main className="max-w-5xl mx-auto pb-10 pt-10">
-      <div className="flex flex-wrap overflow-hidden">
-        <div className="w-full overflow-hidden md:w-4/6 lg:w-4/6 xl:w-4/6">
-          <div className="mr-2 md:mr-4 ml-2">
-            <div className="pb-10">
-              {mainArticle && <MainArticleCard article={mainArticle} />}
-            </div>
-            {articles.map((articleRow, idx) => (
-              <div className="article-row" key={idx}>
-                <div className="article-card-right">
-                  <ArticleCard article={articleRow[0]} />
-                </div>
-                {articleRow[1] && (
-                  <div className="article-card-right">
-                    <ArticleCard article={articleRow[1]} />
-                  </div>
-                )}
+  return (
+    <>
+      <Head>
+        <title>'Christian Blank'</title>
+      </Head>
+      <main className="max-w-5xl mx-auto pb-10 pt-10">
+        <div className="flex flex-wrap overflow-hidden">
+          <div className="w-full overflow-hidden md:w-4/6 lg:w-4/6 xl:w-4/6">
+            <div className="mr-2 md:mr-4 ml-2">
+              <div className="pb-10">
+                {mainArticle && <MainArticleCard article={mainArticle}/>}
               </div>
-            ))}
+
+              {morePosts.length > 0 && <MoreStories articles={morePosts} />}
+            </div>
+          </div>
+
+          <div className="w-full overflow-hidden md:w-2/6 lg:w-2/6 xl:w-2/6">
+            <Sidebar articles={[]}/>
           </div>
         </div>
+      </main>
+    </>
+  );
+};
 
-        <div className="w-full overflow-hidden md:w-2/6 lg:w-2/6 xl:w-2/6">
-          <Sidebar articles={[]} />
-        </div>
-      </div>
-    </main>
-  </>
-);
-
-export async function getStaticProps(context) {
-  const articles = await getAllArticles();
-  const featuredArticles = articles.filter(article => article.featured);
-  const notFeatured = articles.filter(article => !article.featured);
-  const mainArticle = notFeatured.shift();
+export async function getStaticProps({ preview = false }) {
+  const articles = (await getAllPostsForHome(preview)) || [];
 
   return {
-    props: {
-      mainArticle: mainArticle || null,
-      featuredArticles,
-      articles: chunk(notFeatured, 2),
-    },
+    props: { articles, preview },
+    revalidate: 3600,
   };
 }
 
