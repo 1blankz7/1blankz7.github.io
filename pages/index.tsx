@@ -17,7 +17,7 @@ const IndexPage: React.FC<Props> = ({ articles, preview }) => {
   return (
     <>
       <Head>
-        <title>'Christian Blank'</title>
+        <title>Christian Blank</title>
       </Head>
       <main className="max-w-5xl mx-auto pb-10 pt-10">
         <div className="flex flex-wrap overflow-hidden">
