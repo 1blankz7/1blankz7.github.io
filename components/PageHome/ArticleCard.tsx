@@ -8,12 +8,12 @@ type Props = {
 const ArticleCard: React.FC<Props> = ({ article }) => (
   <div>
     <Link href={`/articles/${article.slug}`}>
-      <img className="article-image" src={article.image} alt={article.title} />
+      <img className="article-image" src={article.content.image.filename} alt={article.content.image.alt}/>
     </Link>
     <h2 className="article-title">
-      <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+      <Link href={`/articles/${article.slug}`}>{article.content.title}</Link>
     </h2>
-    <p className="article-body">{article.abstract}</p>
+    <p className="article-body">{article.content.description}</p>
     <Link href={`/articles/${article.slug}`}>
       Read More...
     </Link>

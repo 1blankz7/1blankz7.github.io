@@ -1,28 +1,16 @@
-import lodash from 'lodash';
-
 export interface Article {
   slug: string;
-  title: string;
-  image: string;
-  created: string;
-  abstract: string;
-  category: string | undefined;
-  featured: boolean | false;
-  unpublished: boolean | false;
-}
-
-export async function getAllArticles(): Promise<Array<Article>> {
-  const context = require.context('../pages/articles', false, /\.mdx$/);
-  const articles: Array<Article> = [];
-  for (const key of context.keys()) {
-    const article: string = key.slice(2);
-    const { meta } = await import(`../pages/articles/${article}`);
-    articles.push({
-      ...meta,
-      slug: article.replace(".mdx", ""),
-    });
+  content: {
+    content: string;
+    description: string;
+    title: string;
+    featured: boolean;
+    image: {
+      filename: string;
+      alt: string;
+    }
   }
-  return lodash.reverse(
-    lodash.sortBy(articles.filter(article => !article.unpublished), 'created')
-  );
+  html?: string;
+  tag_list: string[];
+  published_at: string;
 }
