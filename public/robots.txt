@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
 Host: https://cblank.de
+
+# Sitemaps
 Sitemap: https://cblank.de/sitemap.xml

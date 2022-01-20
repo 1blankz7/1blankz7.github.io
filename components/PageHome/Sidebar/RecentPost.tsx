@@ -14,10 +14,10 @@ const RecentPost: React.FC<Props> = ({ article }) => (
       </div>
       <div className="w-2/3 p-2">
         <h3 className="text-gray-900 font-thin font-sans mb-2">
-          {article.title}
+          {article.content.title}
         </h3>
         <span className="text-xs text-gray-800 font-thin block mb-5">
-          {dayjs(article.created).format("DD/MM/YYYY")}
+          {dayjs(article.published_at).format("DD/MM/YYYY")}
         </span>
       </div>
     </Link>
