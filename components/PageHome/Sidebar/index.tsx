@@ -10,11 +10,11 @@ const Sidebar: React.FC<Props> = ({ articles }) => (
   <div className="ml-2 md:ml-4 mr-2">
     <div className="mt-20 sm:mt-0 text-center">
       <div className="w-64 h-64 rounded-full mx-auto relative">
-        <Image src="/assets/cb.jpg" layout="fill" />
+        <Image alt="Christian Blank" src="/assets/cb.jpg" fill />
       </div>
       <h2 className="font-light text-xl my-5">I am</h2>
       <p className="text-gray-900 font-thin tracking-wider leading-loose font-sans">
-        Hi my name is Christian. I work and live in Hamburg, Germany. I'm a researcher, founder, investor and former
+        Hi my name is Christian. I work and live in Nothern Germany. I'm a researcher, founder, investor and former
         professional sportsman.
       </p>
     </div>
