@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedinIn, faTwitter, faXing, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import dayjs from 'dayjs';
 
 const year = dayjs().format('YYYY');
@@ -25,9 +25,6 @@ const Footer: React.FC = () => (
           </a>
           <a href="https://www.linkedin.com/in/christian-blank-55b669195/" title="Linkedin" className="inline-block w-6 mr-2">
             <FontAwesomeIcon icon={faLinkedinIn} />
-          </a>
-          <a href="https://www.xing.com/profile/Christian_Blank28/cv" title="Xing" className="inline-block w-6 mr-2">
-            <FontAwesomeIcon icon={faXing} />
           </a>
           <a href="https://github.com/1blankz7" title="Github" className="inline-block w-6 mr-2">
             <FontAwesomeIcon icon={faGithub} />

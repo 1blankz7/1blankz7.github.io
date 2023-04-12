@@ -32,7 +32,7 @@ const IndexPage: React.FC<Props> = ({ articles, preview }) => {
           </div>
 
           <div className="w-full overflow-hidden md:w-2/6 lg:w-2/6 xl:w-2/6">
-            <Sidebar articles={[]}/>
+            <Sidebar articles={articles.slice(0, 3)}/>
           </div>
         </div>
       </main>

@@ -7,10 +7,10 @@ type Props = {
 }
 
 const RecentPost: React.FC<Props> = ({ article }) => (
-  <li className="mb-3 flex">
-    <Link href={`/articles/${article.slug}`}>
+  <li className="mb-3">
+    <Link href={`/articles/${article.slug}`} className="flex">
       <div className="w-1/3">
-        <img className="rounded" src="https://picsum.photos/100/100" alt="" />
+        <img className="article-image" src={article.content.image.filename} alt={article.content.image.alt} />
       </div>
       <div className="w-2/3 p-2">
         <h3 className="text-gray-900 font-thin font-sans mb-2">
