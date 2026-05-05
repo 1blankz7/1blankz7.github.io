@@ -6,6 +6,7 @@ interface Props {
 
 const { title, description = "Christian Blank — Researcher, Founder, Investor" } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -29,8 +30,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           Christian Blank
         </a>
         <div class="flex gap-6 text-sm text-gray-500">
-          <a href="/" class="hover:text-gray-900 transition-colors">Writing</a>
-          <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+          <a href="/" class={`hover:text-gray-900 transition-colors ${currentPath === '/' ? 'text-gray-900 font-medium' : ''}`}>Writing</a>
+          <a href="/about" class={`hover:text-gray-900 transition-colors ${currentPath.startsWith('/about') ? 'text-gray-900 font-medium' : ''}`}>About</a>
         </div>
       </nav>
     </header>
