@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Christian Blank — Researcher, Founder, Investor" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" type="application/rss+xml" title="Christian Blank" href="/rss.xml" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-gray-900 min-h-screen flex flex-col">
+    <header class="border-b border-gray-100">
+      <nav class="max-w-2xl mx-auto px-4 py-5 flex items-center justify-between">
+        <a href="/" class="font-semibold text-gray-900 hover:text-gray-600 transition-colors">
+          Christian Blank
+        </a>
+        <div class="flex gap-6 text-sm text-gray-500">
+          <a href="/" class="hover:text-gray-900 transition-colors">Writing</a>
+          <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1 max-w-2xl mx-auto px-4 py-12 w-full">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 py-8 flex items-center justify-between text-sm text-gray-400">
+        <span>© {new Date().getFullYear()} Christian Blank</span>
+        <div class="flex gap-4">
+          <a href="https://twitter.com/_cblank" class="hover:text-gray-700 transition-colors">Twitter</a>
+          <a href="https://www.linkedin.com/in/christian-blank-55b669195/" class="hover:text-gray-700 transition-colors">LinkedIn</a>
+          <a href="https://github.com/1blankz7" class="hover:text-gray-700 transition-colors">GitHub</a>
+          <a href="/imprint" class="hover:text-gray-700 transition-colors">Imprint</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Christian Blank">
+  <section>
+    <p class="text-gray-500 mb-12 leading-relaxed">
+      Researcher, founder, and investor based in Northern Germany. I write about AI safety,
+      testing of learning systems, and software engineering at scale.
+    </p>
+
+    <div class="space-y-10">
+      {posts.length === 0 && (
+        <p class="text-gray-400 text-sm">No posts yet — check back soon.</p>
+      )}
+      {posts.map((post) => {
+        const date = post.data.pubDate.toLocaleDateString('en-GB', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        });
+        return (
+          <article>
+            <a href={`/blog/${post.slug}`} class="group block">
+              <time class="text-xs text-gray-400 block mb-1">{date}</time>
+              <h2 class="text-lg font-medium group-hover:text-gray-500 transition-colors leading-snug">
+                {post.data.title}
+              </h2>
+              <p class="text-sm text-gray-500 mt-1 leading-relaxed">
+                {post.data.description}
+              </p>
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>
