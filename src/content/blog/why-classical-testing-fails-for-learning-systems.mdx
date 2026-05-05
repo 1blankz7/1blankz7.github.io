@@ -1,0 +1,61 @@
+---
+title: "Why Classical Testing Methods Fail for Learning Systems"
+description: "Classical software testing assumes deterministic, static systems. Learning systems break every one of those assumptions — and our testing toolbox hasn't caught up."
+pubDate: 2026-05-05
+tags: ["testing", "machine-learning", "ai-safety"]
+draft: true
+---
+
+Classical software testing rests on a deceptively simple premise: given an input, the system produces a predictable output, and you can verify that output against a known correct answer. This assumption is so deeply embedded in how we think about quality assurance that most teams never examine it. When it holds, testing works beautifully. When it doesn't — as is the case with learning systems — the entire testing discipline starts to crack.
+
+## The Oracle Problem
+
+In traditional testing, the *test oracle* is the mechanism you use to determine whether a test passed or failed. It might be a reference implementation, a specification, or simply a hardcoded expected value. The oracle problem arises when you cannot easily determine the correct output for a given input.
+
+For a sorting algorithm, the oracle is trivial: is the output sorted? For an image classifier, it is much harder. What is the *correct* label for an ambiguous image? For a language model generating a summary, there may be dozens of equally valid outputs. There is no ground truth — only a distribution of acceptable answers.
+
+This is not a tooling problem. No testing framework can solve it for you. It is a fundamental epistemological challenge: you cannot assert correctness when correctness is undefined.
+
+## Non-Determinism
+
+Classical testing assumes that running the same test twice produces the same result. This property — determinism — is what makes regression testing possible. If a test fails intermittently, you track down the source of randomness and eliminate it.
+
+Learning systems are non-deterministic by design. Stochastic sampling, temperature parameters, random initialization — these are features, not bugs. The same prompt fed to a language model at temperature 0.8 will produce different outputs on each run. A model fine-tuned with a different random seed may behave differently on edge cases even if aggregate metrics are identical.
+
+This breaks the basic feedback loop of test-driven development. You cannot write a test that asserts a specific output and expect it to pass reliably.
+
+## Distribution Shift
+
+A trained model encodes a snapshot of the world at training time. The world moves on. This is called *distribution shift* — the statistical properties of inputs encountered in production diverge from those the model was trained on.
+
+The problem for testing is temporal. A test suite validated at deployment time may silently become irrelevant. The model has not changed. The tests have not changed. But the real-world inputs have drifted, and the tests no longer probe the failure modes that matter.
+
+Traditional software does not exhibit this property. A correctly implemented hash function is still correct next year. A model for detecting fraudulent transactions may degrade quietly as fraud patterns evolve.
+
+## Emergent Behavior
+
+Large models exhibit behaviors that were not explicitly programmed and cannot be predicted from examining the training data or architecture. Chain-of-thought reasoning, in-context learning, and certain forms of generalization emerged as capabilities only at scale — they were not designed in.
+
+This creates a testing challenge with no classical analogue. You cannot enumerate the behaviors of a system you do not understand well enough to anticipate. Test coverage, in the traditional sense, becomes meaningless when you cannot enumerate the space of behaviors to cover.
+
+## Metamorphic Testing as a Partial Answer
+
+One promising approach is *metamorphic testing*, originally proposed by Tsong Yueh Chen. The core idea: instead of asserting the correct output for a given input, you assert relationships between outputs across related inputs.
+
+For a translation model, you cannot always verify the translation is correct. But you can verify that translating "Hello" and "Hello!" produces outputs that differ only in punctuation. For a classification system, you can assert that adding irrelevant context to an input does not change the predicted category. These *metamorphic relations* let you detect inconsistencies without knowing ground truth.
+
+Metamorphic testing does not solve the oracle problem — it sidesteps it. You are no longer asking "is this output correct?" but "does this system behave consistently?" That is a weaker claim, but it is one you can actually verify.
+
+## What This Means in Practice
+
+Testing learning systems requires a fundamentally different mindset. Some things that follow:
+
+- **Behavioral testing over unit testing.** What matters is system behavior at the boundaries that matter for your use case, not coverage of code paths.
+- **Distribution-aware test sets.** Test suites need to evolve with the data distribution, not just with the code.
+- **Property-based approaches.** Assert invariants and relations rather than exact outputs.
+- **Monitoring as testing.** In production, you cannot fully decouple testing from monitoring. Drift detection, output distribution shifts, and anomaly detection become part of your quality infrastructure.
+- **Explicit uncertainty.** A system that expresses confidence should be tested for calibration, not just accuracy.
+
+Classical testing will not disappear. Unit tests, integration tests, and regression suites still have a role — particularly for the deterministic components surrounding a model. But treating a learning system as if it were a deterministic function is not just ineffective. It creates a false sense of assurance that may be more dangerous than no testing at all.
+
+The field needs new primitives. We are still building them.
