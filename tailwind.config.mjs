@@ -13,5 +13,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    (await import('@tailwindcss/typography')).default,
+  ],
 };
