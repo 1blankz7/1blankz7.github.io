@@ -25,7 +25,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
         });
         return (
           <article>
-            <a href={`/blog/${post.slug}`} class="group block">
+            <a href={`/blog/${post.id}`} class="group block">
               <time class="text-xs text-gray-400 block mb-1">{date}</time>
               <h2 class="text-lg font-medium group-hover:text-gray-500 transition-colors leading-snug">
                 {post.data.title}
